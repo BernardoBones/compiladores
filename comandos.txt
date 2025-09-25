@@ -1,0 +1,4 @@
+ativar venv linux - source venv/bin/activate
+compilar codigo py - python3 generate_median.py
+compilar .o - llc -filetype=obj median.bc -o median.o
+gera executavel - clang test.c median.o -o testprog
