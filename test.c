@@ -11,5 +11,10 @@ int main(void) {
     printf("%lld\n", medianof3(7LL, 7LL, 3LL)); // 7
     printf("%lld\n", medianof3(1,1,1));   // 1
     printf("%lld\n", medianof3(-10,-20,-30)); // -20
+
+    printf("%lld\n", medianof3(1000L, 666LL, -52LL)); // 666
+    printf("%lld\n", medianof3(999999999LL, 999999999LL, 999999999LL)); // 999999999
+    printf("%lld\n", medianof3(-3,-1,-2));   // 
+
     return 0;
 }
