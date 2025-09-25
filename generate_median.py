@@ -60,17 +60,18 @@ median = builder.sub(tmp, menor_final, name="median")
 
 builder.ret(median)
 
-# Exporta IR
-print(module)
+# ---- Configura triple e data layout ----
+target = llvm.Target.from_default_triple()
+target_machine = target.create_target_machine()
+module.triple = llvm.get_default_triple()
+module.data_layout = target_machine.target_data
 
+# ---- Exporta arquivos ----
+with open("median.ll", "w") as f:
+    f.write(str(module))
 
-# BASICAMENTE ISSO AQUI
-# a, b, c
+with open("median.bc", "wb") as f:
+    llvm_ir = llvm.parse_assembly(str(module))
+    f.write(llvm_ir.as_bitcode())
 
-# maior = a
-
-# if b > a:
-#     maior = b
-
-# if c > maior:
-#     maior = c
+print("Arquivos median.ll e median.bc gerados com sucesso!")
