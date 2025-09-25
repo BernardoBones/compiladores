@@ -60,7 +60,7 @@ median = builder.sub(tmp, menor_final, name="median")
 
 builder.ret(median)
 
-# ---- Configura triple e data layout ----
+# ---- Config pra salvar bc e ll----
 target = llvm.Target.from_default_triple()
 target_machine = target.create_target_machine()
 module.triple = llvm.get_default_triple()
